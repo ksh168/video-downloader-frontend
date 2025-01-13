@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.4.1",
     "amqplib": "^0.10.5",
     "next": "15.1.4",
     "react": "^19.0.0",
