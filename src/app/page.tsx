@@ -63,31 +63,39 @@ export default function Home() {
               className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-all"
               disabled={loading}
             />
-            <button
-              onClick={handleDownload}
-              disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <div className="flex items-center justify-center space-x-2">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>Processing...</span>
-                </div>
-              ) : (
-                'Download Video'
-              )}
-            </button>
-          </div>
-
-          {message && (
-            <div className={`mt-4 p-4 rounded-md ${
-              message.includes('success') 
-                ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
-                : 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
-            }`}>
-              {message}
+            <div className="flex gap-4">
+              <button
+                onClick={handleDownload}
+                disabled={loading}
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Processing...</span>
+                  </div>
+                ) : (
+                  'Download Video'
+                )}
+              </button>
+              <button
+                onClick={() => setVideoUrl('')}
+                disabled={loading}
+                className="flex-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-6 rounded-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Clear
+              </button>
             </div>
-          )}
+            {message && (
+              <div className={`mt-4 p-4 rounded-md ${
+                message.includes('success') 
+                  ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                  : 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
+              }`}>
+                {message}
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="mt-12 text-center text-gray-500 dark:text-gray-400 text-sm">
